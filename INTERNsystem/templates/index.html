@@ -1,0 +1,303 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDEX PAGE</title>
+    <style>
+        .showcase img{
+                height: 19em;
+                width: 50%;
+                /*filter:grayscale(60%);*/
+                position: relative;
+                object-fit: cover;
+                z-index: -9;
+            }
+
+        .title-stud{
+                /*width: 100%;
+                height: 100%;*/
+                background-color:rgb(65, 61, 58);
+                height: 19em;
+                width: 50%;
+                mix-blend-mode: multiply;
+                position: absolute;
+                top: 3.7em;
+                z-index: -9;
+            }
+
+        .showcase2{
+                z-index: -9;
+            }
+
+        .showcase2 img{
+                height: 18.1em;
+                width: 50%;
+                /*filter:grayscale(60%);*/
+                position: absolute;
+                object-fit: cover;
+                top: 55.5%;
+            }
+
+        .title-sport{
+                /*width: 100%;
+                height: 100%;*/
+                background-color:rgb(65, 61, 58);
+                height: 18.1em;
+                width: 50%;
+                /*font-size: 50px;*/
+                mix-blend-mode: multiply;
+                position: absolute;
+                bottom: 0em;
+                top: 55.5%;
+            }
+
+
+        .showcase3 img{
+                height: 19em;
+                width: 50%;
+                /*filter:grayscale(60%);*/
+                position: absolute;
+                object-fit: cover;
+                bottom: 18.4em;
+                left: 50%;
+                z-index: -9;
+            }
+
+        .title-coach{
+                /*width: 100%;
+                height: 100%;*/
+                background-color:rgb(65, 61, 58);
+                height: 19em;
+                width: 50%;
+                /*font-size: 50px;*/
+                mix-blend-mode: multiply;
+                position: absolute;
+                bottom: 18.4em;
+                left: 50%;
+                z-index: -9;
+            }
+
+        .showcase4{
+                z-index: -9;
+            }
+
+        .showcase4 img{
+                height: 18.35em;
+                width: 50%;
+                /*filter:grayscale(60%);*/
+                position: absolute;
+                object-fit: cover;
+                left: 50%;
+                bottom: 0em;
+            }
+
+        .title-record{
+                /*width: 100%;
+                height: 100%;*/
+                background-color:rgb(65, 61, 58);
+                height: 18.35em;
+                width: 50%;
+                mix-blend-mode: multiply;
+                position: absolute;
+                left: 50%;
+                bottom: 0em;
+                
+            }
+
+        .stud,.coach,.sport,.record{
+                height: 0.2em;
+                font-size: 50px;
+                color: white;
+                font-family: 'Trebuchet MS';
+                padding: 0.6em 3.5em;
+            }
+
+        .addstud{
+                color: white;
+                position: absolute;
+                font-size:3em;
+                top: 4em;
+                left: 4em;
+            }
+
+        .addstud:hover{
+                transform: scale(1.2);
+            }
+
+        .dispstud{
+                color: white;
+                position: absolute;
+                font-size: 2.5em;
+                top: 4.5em;
+                left: 10em;
+            }
+
+        .dispstud:hover{
+                transform: scale(1.2);
+            }
+
+        .addsport,.addcoach,.addsportrecord{
+                color: white;
+                position: absolute;
+                font-size:2.7em;
+                z-index: 20;
+            }
+
+        .addsport:hover{
+                transform: scale(1.2);
+            }
+
+        .addcoach:hover{
+                transform: scale(1.2);
+            }
+
+        .addsportrecord:hover{
+                transform: scale(1.2);
+            }
+
+        .addcoach{
+                position: absolute;
+                bottom: 9.1em;
+                left: 20em;
+            }
+
+        .addsport{
+                position: absolute;
+                bottom: 2.25em;
+                left: 4.6em;
+            }
+
+        .addsportrecord{
+                position: absolute;
+                bottom: 2.2em;
+                left: 20em;
+            }
+
+        .dispsport,.dispcoach,.dispsportrecord{
+                color: white;
+                font-size:2.5em;
+                z-index: 20;
+            }
+
+        .dispcoach{
+                position: absolute;
+                top: 4.5em;
+                left: 26.5em;
+            }
+
+        .dispsportrecord{
+                position: absolute;
+                left: 26.5em;
+                top: 12em;
+            }
+
+        .dispsport{
+                position: absolute;
+                top: 12em;
+                left: 10em;
+            }
+
+        .dispsport:hover{
+                transform: scale(1.2);
+            }
+
+        .dispcoach:hover{
+                transform: scale(1.2);
+            }
+
+        .dispsportrecord:hover{
+                transform: scale(1.2);
+            }
+
+        .showcase5{
+                z-index: -8;
+            }
+
+        .showcase5 img{
+                height: 18em;
+                width: 20%;
+                /*filter:grayscale(60%);*/
+                position: absolute;
+                top: 35%;
+                left: 39%;
+                object-fit: cover;
+                z-index: 1;
+            }
+
+        .title-form{
+                /*width: 100%;
+                height: 100%;*/
+                background-color:rgb(65, 61, 58);
+                height: 18em;
+                width: 20%;
+                /*font-size: 50px;*/
+                mix-blend-mode: multiply;
+                position: absolute;
+                top: 35%;
+                left: 39%;
+                z-index: 2;
+            }
+
+            .form{
+                height: 0.2em;
+                font-size: 50px;
+                color: white;
+                font-family: 'Trebuchet MS';
+                padding: 0.3em 1.7em ;
+            }
+
+            .adminuploadview{
+                color: white;
+                font-size: 6em;
+                z-index: 20;
+                position: absolute;
+                top: 50%;
+                left: 46.1%;
+            }
+
+            .adminuploadview:hover{
+                transform: scale(1.2);
+            }
+    </style>
+</head>
+<body>
+    <section class="showcase">
+        {% load static %}
+        <img class="stud-img" src="{% static 'student.jpg' %}">
+        <div class="title-stud"><h1 class="stud"><p>STUDENT</p></h1></div>
+        <a href="{% url 'addstud' %}" class="addstud" title="Add student"><i class="fa-solid fa-circle-plus fa-xl"></i></a>
+        <a href="{% url 'displaystud' %}" class="dispstud" title="Display student"><i class="fa-regular fa-clipboard fa-2xl"></i></a>
+    </section>
+    <section class="showcase2">
+        {% load static %}
+        <img class="stud-img2" src="{% static 'company.jpg' %}">
+        <div class="title-sport"><h1 class="sport"><p>COMPANY</p></h1></div>
+        <a href="{% url 'addcompany' %}" class="addsport" title="Add company"><i class="fa-solid fa-circle-plus fa-xl"></i></a>
+        <a href="{% url 'displaycompany' %}" class="dispsport" title="Display company"><i class="fa-regular fa-clipboard fa-2xl"></i></a>
+    </section>
+    <section class="showcase3">
+        {% load static %}
+        <img class="stud-img3" src="{% static 'advisor.jpg' %}">
+        <div class="title-coach"><h1 class="coach"><p>ADVISOR</p></h1></div>
+        <a href="{% url 'addadv' %}" class="addcoach" title="Add advisor"><i class="fa-solid fa-circle-plus fa-xl"></i></a>
+        <a href="{% url 'displayadv' %}" class="dispcoach" title="Display advisor"><i class="fa-regular fa-clipboard fa-2xl"></i></a>
+    </section>
+    <section class="showcase4">
+        {% load static %}
+        <img class="stud-img4" src="{% static 'internship.jpg' %}">
+        <div class="title-record"><h1 class="record"><p>INTERNSHIP</p></h1></div>
+        <a href="{% url 'addintern' %}" class="addsportrecord" title="Add internship record"><i class="fa-solid fa-circle-plus fa-xl"></i></a>
+        <a href="{% url 'displayintern' %}" class="dispsportrecord" title="Display internship record"><i class="fa-regular fa-clipboard fa-2xl"></i></a>
+    </section>
+    <section class="showcase5">
+        {% load static %}
+        <img class="stud-img5" src="{% static 'company-form.jpg' %}">
+        <div class="title-form"><h1 class="form"><p>DOCS</p></h1></div>
+        <a href="{% url 'adminuploadview' %}" class="adminuploadview" title="Upload internship documents"><i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+    </section>
+</body>
+</html>
+{% endblock %}

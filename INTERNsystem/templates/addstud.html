@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD STUDENT</title>
+    <style>
+        .addstud-word{
+            font-family:'Trebuchet MS';
+            position: relative;
+            top: 1.5em;
+            z-index: -2;
+        }
+
+        form{
+            width: 80%;
+            position: relative;
+            top: 7em;
+            left: 20%;
+        }
+
+        .form-floating {
+            margin-bottom: 20px;
+            width: 75%;
+            height: 20%;
+        }
+
+        .form-floating select,
+        .form-floating input[type="text"],
+        .form-floating input[type="email"],
+        .form-floating input[type="tel"],
+        .form-floating input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .Form-box{
+            width: 90%;
+            height: 75em;
+            border-style: solid;
+            color: black;
+            margin: 1em 1em;
+            position: relative;
+            left: 4%;
+            border-radius: 6px;
+        }
+
+        .floatingInput{
+            font-family:'Trebuchet MS';
+            font-weight: bold;
+            font-size: 1.12em;
+        }
+
+        .login-input{
+                width: 30%;
+                padding: 0.3rem 2rem;
+                font-size: 1.5rem;
+                border: none;
+                border-radius: 30px;
+                font-weight: 600;
+                color: black;
+                transition: all 0.2s ease;
+                background: none;
+                box-shadow: 0 0 0 0.1em black;
+                position: absolute;
+                font-family: "Trebuchet MS";
+                position: relative;
+                left: 9.5em;
+                top: 6em;
+            }
+
+        .login-input:hover{
+                transform: scale(1.03);
+                box-shadow: 0 0 0px 10px black;
+                color: black;
+            }
+
+        .alert{
+            height: auto;
+            width: auto;
+            position: absolute;
+            top: 92%;
+            color: red;
+            left: 1.5%;
+        }
+
+        .alert2{
+            height: auto;
+            width: 80%;
+            position: absolute;
+            top: 90%;
+            font-size: 1.13em;
+        }
+
+        #img-form{
+            position: absolute;
+            top: 101%;
+        }
+
+        #img-form-lbl{
+            position: absolute;
+            top: 97.3%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="Form-box">
+        <h1 align="center" class="addstud-word">ADD STUDENT INFORMATION</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <label class="floatingInput">Student ID:</label>
+            <div class="form-floating">
+                {{ form.StudID }}
+            </div>
+            <br>
+            <label class="floatingInput">Student Name:</label>
+            <div class="form-floating">
+                {{form.StudName}}
+            </div>
+            <br>
+            <label class="floatingInput">Student Course:</label>
+            <div class="form-floating">
+                {{form.StudCourse}}
+            </div>
+            <br>
+            <label class="floatingInput">Student Mentor:</label>
+            <div class="form-floating">
+                {{form.StudMentor}}
+            </div>
+            <br>
+            <label class="floatingInput">Student E-mail Address:</label>
+            <div class="form-floating">
+                {{form.StudEmailAddr}}
+            </div>
+            <br>
+            <label class="floatingInput">Student Tel. No:</label>
+            <div class="form-floating">
+                {{form.StudTelNo}}
+            </div>
+            <br>
+            <h6 class="alert2">GAMBAR YANG DIUPLOAD MESTILAH DINAMAKAN MENGGUNAKAN FORMAT 
+                BERIKUT:
+                <br>
+                NomborID_NamaPelajar (BCS2007-123_AliBinAbu.jpg)
+            </h6>
+            <label class="floatingInput" id="img-form-lbl">Student Picture:</label>
+            <div class="form-floating" id="img-form">
+                {{form.StudImg}}
+            </div>
+            <br>
+            <input type="submit" value="SAVE" class="login-input">
+        </form>
+        <h5 class="alert">PERINGATAN! PASTIKAN SEMUA DATA YANG DIISI ADALAH TEPAT DAN BETUL. SEBARANG 
+            KESILAPAN DALAM KEMASUKAN DATA PERLULAH DIRUJUK KEPADA PEGAWAI 
+            LATIHAN INDUSTRI</h5>
+    </div>
+</body>
+</html>
+{% endblock %}

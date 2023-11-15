@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTER PAGE</title>
+    <style>
+
+        .login-word{
+            width: 20%;
+            height: auto;
+            font-family:'Trebuchet MS';
+            position: relative;
+            left: 13em;
+            top: 1.3em;
+            z-index: -9;
+        }
+
+        form{
+            position: relative;
+            top: 5em;
+            width: 60%;
+            left: 21%;
+        }
+
+        .signup-input{
+                padding: 0.3rem 13rem;
+                font-size: 1.5rem;
+                border: none;
+                border-radius: 30px;
+                font-weight: 600;
+                color: black;
+                transition: all 0.2s ease;
+                background: none;
+                box-shadow: 0 0 0 0.1em black;
+                position: relative;
+                left: 2em;
+                top: 0.5em;
+                font-family: "Trebuchet MS";
+            }
+
+        .signup-input:hover{
+                transform: scale(1.03);
+                box-shadow: 0 0 0px 10px black;
+                color: black;
+            }
+
+        .login-box{
+            width: 90%;
+            height: 37em;
+            border-style: solid;
+            color: black;
+            margin: 1em 1em;
+            position: relative;
+            left: 4%;
+            border-radius: 6px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h1 class="login-word">REGISTER</h1>
+        <form action="{% url 'register_user' %}" method="post" class="form">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input class="signup-input" type="submit" value="SAVE INFORMATION">
+        </form>
+    </div>
+    <br><br>
+    <br><br>   
+</body>
+</html>
+{% endblock %}

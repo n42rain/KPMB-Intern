@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DISPLAY COMPANY</title>
+    <style>
+        .showcase{
+                width: 100%;
+                height: 50%;
+                position: relative;
+                bottom: 3em;
+                z-index: -11;
+            }
+
+        .showcase video{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                object-fit: cover;
+            }
+
+        .title{
+                width: 100%;
+                height: 50%;
+                background-color:rgb(94,87,81);
+                mix-blend-mode: multiply;
+                font-family: 'Trebuchet MS';
+                padding: 3em 11.9em;
+                font-size: 50px;
+                color: aliceblue;
+            }
+            
+        table,tr,td{
+            border:1.9pt solid;
+            font-family: 'Trebuchet MS';
+            padding: 10px;
+        }
+
+        table{
+            width: 80%;
+            border-collapse: collapse;
+        }
+
+        .table-row1{
+            background-color:darkorange;
+        }
+
+        td{
+            height: 50px;
+            text-align: center;
+        }
+
+        .table-row2:hover{
+            background-color: rgb(224, 222, 222);
+        }
+
+        .topic{
+            font-family:'Trebuchet MS';
+            position: relative;
+            z-index: -11;
+        }
+
+        .update-btn:hover{
+            color:darkgreen;
+        }
+
+        .dlt-btn:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    {% load static %}
+    <section class="showcase">
+            <video src="{% static 'company-view.mp4' %}" autoplay loop muted></video>
+                <div class="title"><h1 class="word">COMPANY</h1></div>
+    </section>
+    <h1 align="center" class="topic">DATA</h1>
+    <br>
+    <table align="center" border="2">
+        <tr class="table-row1">
+            <td>Company ID</td>
+            <td>Company Name</td>
+            <td>Company Address</td>
+            <td>Company Sector</td>
+            <td>Company Contact No.</td>
+        </tr>
+        {% for data in compdata %}
+        <tr class="table-row2">
+            <td>{{data.CompanyID}}</td>
+            <td>{{data.CompanyName}}</td>
+            <td>{{data.CompanyAddr}}</td>
+            <td>{{data.CompanySector}}</td>
+            <td>{{data.CompanyTelNo}}</td>
+            <td><a href="updatecomp/{{data.CompanyID}}" class="update-btn">Update</a></td>
+            {% if user.is_authenticated %}
+            <td><a href="deletecomp/{{data.CompanyID}}" class="dlt-btn" data-confirm="Are you sure to delete this item?">Delete</a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+    <script>
+        var deleteLinks = document.querySelectorAll('.dlt-btn');
+
+        for (var i = 0; i < deleteLinks.length; i++) {
+        deleteLinks[i].addEventListener('click', function(event) {
+            event.preventDefault();
+
+            var choice = confirm(this.getAttribute('data-confirm'));
+
+            if (choice) {
+                window.location.href = this.getAttribute('href');
+            }
+        });
+        }
+    </script>
+</body>
+</html>
+{% endblock %}
